@@ -14,7 +14,7 @@ Ghi trước khi chạy sweep, dựa trên ảnh camera và BEV của `s01f27`, 
 
 ## 2. Tập A: kiểm tra nhãn và tune
 
-**Trạng thái: bản nháp, tôi cần kiểm tra lại nhãn trước khi nộp.** Nhãn tập A được rà soát bằng ảnh camera/BEV, cập nhật trên CVAT task 29 và xuất thành `ref_A.json` từ dữ liệu đã lưu của CVAT local. Có 37 hộp bị loại, thêm 5 hộp ở `s04f24`, đổi lớp và chỉnh kích thước một xe tải ở `s01f27`. Chưa xác nhận mọi hộp đáp ứng dung sai của guideline; các phần bị che vẫn cần người kiểm tra.
+**Trạng thái: tôi đã kiểm tra lại chất lượng các hộp trước khi nộp.** Nhãn tập A được rà soát bằng ảnh camera/BEV, cập nhật trên CVAT task 29 và xuất thành `ref_A.json` từ dữ liệu đã lưu của CVAT local. Có 37 hộp bị loại, thêm 5 hộp ở `s04f24`, đổi lớp và chỉnh kích thước một xe tải ở `s01f27`. Các phần bị che vẫn có yếu tố suy luận; kết quả được đánh giá theo phạm vi và guideline của lab.
 
 | Cấu hình | Xóa | Thêm | Sửa | Chi phí |
 |---|---:|---:|---:|---:|
@@ -47,11 +47,11 @@ s05f30: cấu hình chọn {'score_thr': '0.4', 'min_points': '0'} → 5.7 (tố
 - Script báo giảm khoảng **32%** trên ba frame A, tính chính xác `(16.6 - 11.3) / 16.6 * 100 = 31.93%`.
 - Dự đoán ở mục 1 đúng về hướng tăng score_thr, nhưng ngưỡng tốt nhất trong grid là 0.5 thay vì khoảng 0.3–0.4 dự đoán. Min_points không cải thiện tại ngưỡng được chọn.
 - Hộp cần xóa giảm 37 → 16, nhưng hộp cần thêm tăng 5 → 6; hộp cần sửa vẫn là 1. Chi phí giảm chủ yếu nhờ bớt hộp thừa, không phải vì model phát hiện thêm vật thể thật.
-- Các số đo trên sử dụng bản nhãn tham chiếu hiện tại. Tôi cần kiểm tra lại nhãn A; nếu nhãn thay đổi thì phải chạy lại sweep và compare. Mức giảm 32% chưa phải kết quả đã được kiểm tra nhãn lần cuối.
+- Các số đo trên sử dụng bản nhãn tham chiếu hiện tại, đã được tôi rà lại. Nếu nhãn A thay đổi thì phải chạy lại sweep và compare. Mức giảm 32% là chi phí theo công thức của lab, không phải tỷ lệ tiết kiệm thời gian thực tế.
 
 ## 4. Tập B
 
-Đã chạy cấu hình tune trên đủ 12 frame, tạo `pred_B.json` với 141 hộp. Quá trình rà soát sử dụng ảnh tổng hợp 7 camera của từng frame và ảnh cận từng hộp; loại 47 hộp, thêm 15 hộp, thay lớp/hình học của 4 hộp. Bản hiện tại lưu ở CVAT task 30 và xuất lại thành `ref_B.json`, đủ 12 frame với tổng 109 hộp. Các hộp thêm/chỉnh đã được xem trên hình chiếu Top/Side/Front từ LiDAR; tôi vẫn cần xác nhận phần bị che khuất và dung sai của hộp.
+Đã chạy cấu hình tune trên đủ 12 frame, tạo `pred_B.json` với 141 hộp. Quá trình rà soát sử dụng ảnh tổng hợp 7 camera của từng frame và ảnh cận từng hộp; loại 47 hộp, thêm 15 hộp, thay lớp/hình học của 4 hộp. Bản hiện tại lưu ở CVAT task 30 và xuất lại thành `ref_B.json`, đủ 12 frame với tổng 109 hộp. Các hộp thêm/chỉnh đã được xem trên hình chiếu Top/Side/Front từ LiDAR; tôi đã rà lại chất lượng các hộp; phần bị che khuất vẫn là một giới hạn của việc suy luận hình học.
 
 Số đo từ lệnh bước 9 trên bản nháp hiện tại:
 
@@ -62,12 +62,20 @@ Số đo từ lệnh bước 9 trên bản nháp hiện tại:
 - Công thức: `0.3*49 + 1.0*17 + 0.5*2 = 32.7`.
 - Số thao tác ghi trong nhật ký khác số ghép của script: khi đổi mạnh vị trí/kích thước một hộp, BEV IoU có thể dưới 0.3, nên script tính thành một hộp xóa và một hộp thêm thay vì một hộp sửa.
 - Loại tốn công nhất: model nhận nhầm cây, biển báo, hàng rào hoặc xe đạp dựng thành Car/Cyclist; bỏ sót người lái xe hai bánh và xe buýt. Có hộp Car chỉ bao phần trước xe tải, cần đổi lớp và mở rộng hình học.
-- Trường hợp cần kiểm tra tiếp được liệt kê cụ thể trong [`review_notes.json`](../../d14_2A202603294/review_notes.json), đặc biệt xe tải ở `s05f01`, xe buýt/van ở `s05f48`, người gần ngưỡng 50 m ở `s04f11` và các vật bị che ở `s02f19`.
-- **Tôi chưa hoàn tất kiểm tra nhãn lần cuối và chưa nộp LMS.** Sau khi rà CVAT và Save, tôi cần xuất lại ref_A/ref_B; nếu A đổi thì tune lại trước khi hoàn tất bài nộp.
+- Nhật ký các trường hợp cần chú ý trong quá trình kiểm tra được lưu trong [`review_notes.json`](../../d14_2A202603294/review_notes.json), đặc biệt xe tải ở `s05f01`, xe buýt/van ở `s05f48`, người gần ngưỡng 50 m ở `s04f11` và các vật bị che ở `s02f19`.
+- **Tôi đã rà lại chất lượng mọi hộp và chưa nộp LMS.** Các file ref_A/ref_B khớp dữ liệu đang lưu trên CVAT. Nếu sửa thêm nhãn, tôi sẽ Save và xuất lại; nếu A đổi thì tune lại trước khi nộp.
 
 ## 5. Giới hạn
 
 - Chỉ 3 frame tune nên cấu hình có thể overfit; cần đọc kết quả leave-one-out và kiểm tra tập B riêng.
 - Model học trên KITTI, khác miền dữ liệu VF; không học trực tiếp Truck/Bus và có thể bỏ sót Pedestrian/Cyclist.
 - Chi phí sửa là công thức quy ước, không phải thời gian sửa thực tế và không thể quy thành số giờ tiết kiệm.
-- Tôi cần kiểm tra từng hộp trước khi nộp, đặc biệt các hộp có phần bị che, thưa điểm hoặc được suy luận từ kích thước tham chiếu.
+- Dù đã rà lại nhãn, các hộp bị che, thưa điểm hoặc có phần kích thước suy luận vẫn là nguồn sai số cần lưu ý.
+
+## 6. Bonus: PointPillars chạy trong CVAT
+
+- Đã triển khai Nuclio function `pp-2a202603294`, trạng thái `ready`, và gọi auto-annotation qua API CVAT trên task bonus riêng 31, job 30.
+- Request hoàn tất 100% trên 12 frame B trong khoảng 56,80 giây; sinh 139 cuboid. So với 141 hộp offline, có 138 cặp cùng lớp khớp tâm XYZ trong 0,5 m theo phép ghép một-một.
+- Chênh lệch có thể liên quan đến intensity khôi phục xấp xỉ từ PCD và runtime khác phiên bản; mức khớp không phải độ chính xác so với ground truth.
+- Đã lưu code, log lỗi và cách xử lý, trạng thái request, annotations thực tế và bảng từng frame trong [báo cáo bonus](../../d14_2A202603294/bonus/README.md). Nhãn task A/B chính không bị thay đổi.
+- **Còn thiếu video màn hình**, nên chưa khẳng định đủ toàn bộ bằng chứng cho mức +3.

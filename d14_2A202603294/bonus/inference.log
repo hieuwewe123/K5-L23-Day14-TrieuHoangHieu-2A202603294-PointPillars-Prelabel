@@ -1,0 +1,48 @@
+26.11.26 10:33:28.349 (I)                 processor Starting processor {"version": "Label: 1.16.3, Git commit: 8c2f46962ddb68b524727414f79c85d4fc2f38ad, OS: linux, Arch: amd64, Go version: go1.26.3"}
+26.11.26 10:33:28.350 (D)                 processor Read configuration {"config": "{\n    \"metadata\": {\n        \"name\": \"pp-2a202603294\",\n        \"namespace\": \"nuclio\",\n        \"labels\": {\n            \"nuclio.io/project-name\": \"cvat\"\n        },\n        \"annotations\": {\n            \"name\": \"PointPillars 2A202603294 CPU\",\n            \"spec\": \"[{\\\"id\\\":1,\\\"name\\\":\\\"Car\\\",\\\"type\\\":\\\"cuboid\\\"},{\\\"id\\\":2,\\\"name\\\":\\\"Truck\\\",\\\"type\\\":\\\"cuboid\\\"},{\\\"id\\\":3,\\\"name\\\":\\\"Bus\\\",\\\"type\\\":\\\"cuboid\\\"},{\\\"id\\\":4,\\\"name\\\":\\\"Cyclist\\\",\\\"type\\\":\\\"cuboid\\\"},{\\\"id\\\":5,\\\"name\\\":\\\"Pedestrian\\\",\\\"type\\\":\\\"cuboid\\\"}]\\n\",\n            \"supported_shape_types\": \"cuboid\",\n            \"type\": \"detector\"\n        }\n    },\n    \"spec\": {\n        \"description\": \"VF LiDAR binary PCD to PointPillars cuboids on CPU\",\n        \"handler\": \"main:handler\",\n        \"runtime\": \"python:3.10\",\n        \"resources\": {\n            \"requests\": {\n                \"cpu\": \"25m\",\n                \"memory\": \"1Mi\"\n            }\n        },\n        \"image\": \"nuclio/processor-pp-2a202603294:latest\",\n        \"triggers\": {\n            \"http\": {\n                \"class\": \"\",\n                \"kind\": \"http\",\n                \"name\": \"http\",\n                \"numWorkers\": 1,\n                \"attributes\": {\n                    \"maxRequestBodySize\": 33554432,\n                    \"port\": 32014,\n                    \"streamingFlushPeriod\": \"1s\"\n                },\n                \"mode\": \"sync\"\n            }\n        },\n        \"build\": {\n            \"path\": \"http://d14-function-source/function.zip\",\n            \"baseImage\": \"python:3.10-slim\",\n            \"directives\": {\n                \"preCopy\": [\n                    {\n                        \"kind\": \"RUN\",\n                        \"value\": \"pip install --no-cache-dir --upgrade pip \\u0026\\u0026 pip install --no-cache-dir numpy==2.1.3\"\n                    },\n                    {\n                        \"kind\": \"RUN\",\n                        \"value\": \"pip install --no-cache-dir torch==2.5.1+cpu --extra-index-url https://download.pytorch.org/whl/cpu\"\n                    }\n                ]\n            },\n            \"codeEntryType\": \"archive\",\n            \"timestamp\": 1795689206\n        },\n        \"platform\": {\n            \"attributes\": {\n                \"mountMode\": \"volume\",\n                \"restartPolicy\": {\n                    \"maximumRetryCount\": 3,\n                    \"name\": \"always\"\n                }\n            }\n        },\n        \"readinessTimeoutSeconds\": 120,\n        \"securityContext\": {},\n        \"disableDefaultHTTPTrigger\": false,\n        \"eventTimeout\": \"120s\",\n        \"streamChunkTimeout\": \"\",\n        \"lastDeployTimestamp\": \"1795689090904911154\"\n    },\n    \"PlatformConfig\": null\n}"}
+26.11.26 10:33:28.350 (I) cessor.healthcheck.server Listening {"listenAddress": ":8082"}
+26.11.26 10:33:28.351 (D)            processor.http Creating fixed pool worker allocator {"num": 1}
+26.11.26 10:33:28.352 (D) logger.connection-manager Creating listener socket {"path": "/tmp/nuclio-rpc-dc40lu0tda2c739misrg.sock"}
+26.11.26 10:33:28.353 (D) logger.connection-manager Creating listener socket {"path": "/tmp/nuclio-rpc-dc40lu0tda2c739miss0.sock"}
+26.11.26 10:33:28.353 (D) logger.connection-manager Got socket addresses {"eventAddresses": ["/tmp/nuclio-rpc-dc40lu0tda2c739miss0.sock"], "controlAddress": "/tmp/nuclio-rpc-dc40lu0tda2c739misrg.sock"}
+26.11.26 10:33:28.353 (D) sor.http.w0.python.logger Using Python wrapper script path {"path": "/opt/nuclio/_nuclio_wrapper.py"}
+26.11.26 10:33:28.353 (D) sor.http.w0.python.logger Using Python handler {"handler": "main:handler"}
+26.11.26 10:33:28.354 (D) sor.http.w0.python.logger Using Python executable {"path": "/usr/local/bin/python3"}
+26.11.26 10:33:28.354 (D) sor.http.w0.python.logger Setting PYTHONPATH {"value": "PYTHONPATH=/opt/nuclio"}
+26.11.26 10:33:28.354 (D) sor.http.w0.python.logger Running wrapper {"command": "/usr/local/bin/python3 -u /opt/nuclio/_nuclio_wrapper.py --handler main:handler --event-socket-path /tmp/nuclio-rpc-dc40lu0tda2c739miss0.sock --control-socket-path /tmp/nuclio-rpc-dc40lu0tda2c739misrg.sock --platform-kind local --namespace nuclio --worker-id 0 --trigger-kind http --trigger-name http --decode-event-strings"}
+{"datetime": "2026-11-26 10:33:28,615", "level": "debug", "message": "Connecting to socket /tmp/nuclio-rpc-dc40lu0tda2c739misrg.sock", "with": {"worker_id": "0"}}
+{"datetime": "2026-11-26 10:33:28,615", "level": "debug", "message": "Successfully connected to socket /tmp/nuclio-rpc-dc40lu0tda2c739misrg.sock", "with": {"worker_id": "0"}}
+26.11.26 10:33:28.615 (D) logger.connection-manager Successfully established connection for event sockets
+26.11.26 10:33:28.616 (D) logger.connection-manager Successfully established connection for control socket
+26.11.26 10:33:28.616 (D) logger.connection-manager Waiting for start
+26.11.26 10:33:28.616 (D) onnection-manager.control Connecting to socket /tmp/nuclio-rpc-dc40lu0tda2c739miss0.sock {"worker_id": "0"}
+26.11.26 10:33:28.616 (D) onnection-manager.control Successfully connected to socket /tmp/nuclio-rpc-dc40lu0tda2c739miss0.sock {"worker_id": "0"}
+26.11.26 10:33:30.660 (I) .connection-manager.event PointPillars ready: CPU; four rotations; binary PCD intensity inversion
+26.11.26 10:33:30.660 (D) logger.connection-manager Socker allocator started
+26.11.26 10:33:30.660 (D) .http.sync-pool-allocator Allocator objects updated {"size": 1}
+26.11.26 10:33:30.660 (I)            processor.http Setting default worker availability timeout {"DefaultWorkerAvailabilityTimeoutMilliseconds": 10000}
+26.11.26 10:33:30.661 (I)                 processor Starting event timeout watcher {"timeout": "2m0s"}
+26.11.26 10:33:30.661 (D) onnection-manager.control Sending data on control socket {"data_length": 2, "worker_id": "0"}
+26.11.26 10:33:30.661 (D) .webadmin.server.triggers Registered custom route {"routeName": "triggers", "stream": false, "pattern": "/{id}/stats", "method": "GET"}
+26.11.26 10:33:30.661 (D) processor.webadmin.server Registered resource {"name": "triggers"}
+26.11.26 10:33:30.661 (W)                 processor No metric sinks configured, metrics will not be published
+26.11.26 10:33:30.661 (D)                 processor Starting triggers
+26.11.26 10:33:30.661 (I)            processor.http Starting {"listenAddress": ":8080", "readBufferSize": 16384, "maxRequestBodySize": 33554432, "reduceMemoryUsage": false, "cors": null}
+26.11.26 10:33:30.661 (D)                 processor Trigger successfully started {"kind": "http", "name": "http"}
+26.11.26 10:33:30.661 (I) processor.webadmin.server Listening {"listenAddress": ":8081"}
+26.11.26 10:33:30.661 (D)                 processor Processor started
+26.11.26 10:33:30.661 (D) onnection-manager.control Received control message {"messageKind": "wrapperInitialized"}
+26.11.26 10:33:57.814 (I) .connection-manager.event Detected 7 cuboids from 66137 points
+26.11.26 10:34:01.282 (I) .connection-manager.event Detected 18 cuboids from 67619 points
+26.11.26 10:34:07.984 (I) .connection-manager.event Detected 8 cuboids from 69175 points
+26.11.26 10:34:11.700 (I) .connection-manager.event Detected 7 cuboids from 66174 points
+26.11.26 10:34:15.076 (I) .connection-manager.event Detected 10 cuboids from 66530 points
+26.11.26 10:34:19.220 (I) .connection-manager.event Detected 13 cuboids from 66487 points
+26.11.26 10:34:23.455 (I) .connection-manager.event Detected 14 cuboids from 61590 points
+26.11.26 10:34:27.615 (I) .connection-manager.event Detected 13 cuboids from 61295 points
+26.11.26 10:34:31.391 (I) .connection-manager.event Detected 8 cuboids from 61863 points
+26.11.26 10:34:36.214 (I) .connection-manager.event Detected 19 cuboids from 67869 points
+26.11.26 10:34:40.957 (I) .connection-manager.event Detected 14 cuboids from 65517 points
+26.11.26 10:34:47.819 (I) .connection-manager.event Detected 8 cuboids from 66689 points
+/usr/local/lib/python3.10/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]

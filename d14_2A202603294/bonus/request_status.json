@@ -1,0 +1,14 @@
+{
+  "id": "action=autoannotate&target=task&target_id=31",
+  "function": {
+    "id": "pp-2a202603294",
+    "task": 31,
+    "threshold": 0.5
+  },
+  "status": "finished",
+  "progress": 100,
+  "enqueued": "2026-11-26T10:33:51.013612Z",
+  "started": "2026-11-26T10:33:51.139896Z",
+  "ended": "2026-11-26T10:34:47.940555Z",
+  "exc_info": null
+}

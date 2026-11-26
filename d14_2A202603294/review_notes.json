@@ -1,5 +1,5 @@
 {
-  "status": "DRAFT: requires human verification before submission",
+  "status": "Student confirmed visual review on 2026-11-26; original review notes retained for traceability",
   "A": {
     "removed": 37,
     "added": 5,
@@ -321,5 +321,10 @@
     "s05f01: verify dump truck rear extent and heading; cab front is visible, rear is occluded.",
     "s05f24: pp_id=5 vehicle at long range needs class confirmation; inspect additional small riders/tricycles at the intersection.",
     "s05f48: verify Bus vs passenger/cargo van for the two blue vans, and whether distant Car pp_id=1 and 6 are distinct objects."
-  ]
+  ],
+  "student_review": {
+    "confirmed": true,
+    "date": "2026-11-26",
+    "basis": "Học viên xác nhận đã tự kiểm tra chất lượng mọi hộp và thấy phù hợp."
+  }
 }

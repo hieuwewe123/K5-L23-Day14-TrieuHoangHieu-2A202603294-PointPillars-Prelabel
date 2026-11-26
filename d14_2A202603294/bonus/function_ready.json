@@ -1,0 +1,161 @@
+{
+  "metadata": {
+    "name": "pp-2a202603294",
+    "namespace": "nuclio",
+    "labels": {
+      "nuclio.io/project-name": "cvat"
+    },
+    "annotations": {
+      "name": "PointPillars 2A202603294 CPU",
+      "spec": "[{\"id\":1,\"name\":\"Car\",\"type\":\"cuboid\"},{\"id\":2,\"name\":\"Truck\",\"type\":\"cuboid\"},{\"id\":3,\"name\":\"Bus\",\"type\":\"cuboid\"},{\"id\":4,\"name\":\"Cyclist\",\"type\":\"cuboid\"},{\"id\":5,\"name\":\"Pedestrian\",\"type\":\"cuboid\"}]\n",
+      "supported_shape_types": "cuboid",
+      "type": "detector"
+    }
+  },
+  "spec": {
+    "description": "VF LiDAR binary PCD to PointPillars cuboids on CPU",
+    "handler": "main:handler",
+    "runtime": "python:3.10",
+    "resources": {
+      "requests": {
+        "cpu": "25m",
+        "memory": "1Mi"
+      }
+    },
+    "image": "nuclio/processor-pp-2a202603294:latest",
+    "triggers": {
+      "http": {
+        "class": "",
+        "kind": "http",
+        "name": "http",
+        "numWorkers": 1,
+        "attributes": {
+          "maxRequestBodySize": 33554432,
+          "port": 32014,
+          "streamingFlushPeriod": "1s"
+        },
+        "mode": "sync"
+      }
+    },
+    "build": {
+      "path": "http://d14-function-source/function.zip",
+      "baseImage": "python:3.10-slim",
+      "directives": {
+        "preCopy": [
+          {
+            "kind": "RUN",
+            "value": "pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir numpy==2.1.3"
+          },
+          {
+            "kind": "RUN",
+            "value": "pip install --no-cache-dir torch==2.5.1+cpu --extra-index-url https://download.pytorch.org/whl/cpu"
+          }
+        ]
+      },
+      "codeEntryType": "archive",
+      "timestamp": 1795689206
+    },
+    "platform": {
+      "attributes": {
+        "mountMode": "volume",
+        "restartPolicy": {
+          "maximumRetryCount": 3,
+          "name": "always"
+        }
+      }
+    },
+    "readinessTimeoutSeconds": 120,
+    "securityContext": {},
+    "disableDefaultHTTPTrigger": false,
+    "eventTimeout": "120s",
+    "streamChunkTimeout": "",
+    "lastDeployTimestamp": "1795689090904911154"
+  },
+  "status": {
+    "state": "ready",
+    "logs": [
+      {
+        "level": "info",
+        "message": "Deploying function",
+        "name": "pp-2a202603294",
+        "requestID": "f2c91ada605d/6wsJUUbxiH-000006",
+        "time": 1795689090525.5767
+      },
+      {
+        "builderKind": "docker",
+        "level": "info",
+        "message": "Building",
+        "name": "pp-2a202603294",
+        "requestID": "f2c91ada605d/6wsJUUbxiH-000006",
+        "time": 1795689090525.6526,
+        "versionInfo": "Label: 1.16.3, Git commit: 284d2b667ff0963cf7366d0ba4a2a6df47c132cd, OS: linux, Arch: amd64, Go version: go1.26.3"
+      },
+      {
+        "level": "info",
+        "message": "Staging files and preparing base images",
+        "name": "deployer",
+        "time": 1795689091156.3066
+      },
+      {
+        "baseImage": "python:3.10-slim",
+        "level": "warn",
+        "message": "Using user provided base image, runtime interpreter version is provided by the base image",
+        "name": "deployer",
+        "time": 1795689091186.0994
+      },
+      {
+        "level": "warn",
+        "message": "Python 3.10 runtime is still supported but will be deprecated soon. Migrate your code to Python 3.11 (`python:3.11`) or higher",
+        "name": "deployer",
+        "time": 1795689091186.1172
+      },
+      {
+        "baseImage": "python:3.10-slim",
+        "level": "info",
+        "message": "Building processor image",
+        "name": "deployer",
+        "registryURL": "",
+        "requestID": "f2c91ada605d/6wsJUUbxiH-000006",
+        "taggedImageName": "nuclio/processor-pp-2a202603294:latest",
+        "time": 1795689091186.3464
+      },
+      {
+        "image": "nuclio/processor-pp-2a202603294:latest",
+        "level": "info",
+        "message": "Build complete",
+        "name": "deployer",
+        "requestID": "f2c91ada605d/6wsJUUbxiH-000006",
+        "time": 1795689206699.2024
+      },
+      {
+        "functionName": "pp-2a202603294",
+        "level": "info",
+        "message": "Cleaning up before deployment",
+        "name": "deployer",
+        "time": 1795689206759.259
+      },
+      {
+        "externalInvocationURLs": [
+          "192.168.65.254:32014"
+        ],
+        "functionName": "pp-2a202603294",
+        "httpPort": 32014,
+        "internalInvocationURLs": [
+          "172.17.0.3:8080"
+        ],
+        "level": "info",
+        "message": "Function deploy complete",
+        "name": "deployer",
+        "requestID": "f2c91ada605d/6wsJUUbxiH-000006",
+        "time": 1795689210268.7278
+      }
+    ],
+    "httpPort": 32014,
+    "internalInvocationUrls": [
+      "172.17.0.3:8080"
+    ],
+    "externalInvocationUrls": [
+      "192.168.65.254:32014"
+    ]
+  }
+}
