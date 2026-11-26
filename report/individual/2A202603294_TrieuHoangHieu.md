@@ -53,7 +53,7 @@ s05f30: cấu hình chọn {'score_thr': '0.4', 'min_points': '0'} → 5.7 (tố
 
 Đã chạy cấu hình tune trên đủ 12 frame, tạo `pred_B.json` với 141 hộp. Quá trình rà soát sử dụng ảnh tổng hợp 7 camera của từng frame và ảnh cận từng hộp; loại 47 hộp, thêm 15 hộp, thay lớp/hình học của 4 hộp. Bản hiện tại lưu ở CVAT task 30 và xuất lại thành `ref_B.json`, đủ 12 frame với tổng 109 hộp. Các hộp thêm/chỉnh đã được xem trên hình chiếu Top/Side/Front từ LiDAR; tôi đã rà lại chất lượng các hộp; phần bị che khuất vẫn là một giới hạn của việc suy luận hình học.
 
-Số đo từ lệnh bước 9 trên bản nháp hiện tại:
+Số đo từ lệnh bước 9 trên bộ nhãn đã kiểm tra:
 
 | Xóa | Thêm | Sửa | Chi phí |
 |---:|---:|---:|---:|

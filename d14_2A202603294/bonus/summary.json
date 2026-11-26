@@ -23,5 +23,5 @@
   "duration_seconds": 56.800659,
   "weights_sha256": "482dfcf63b932cc5ccf012b4bbdad52aa51aa33becf87d0a39d61c39b377b5b1",
   "config_sha256": "9e44dfd7b6ba50426a3a4fcbd086a20c8ee480e55149171ab5322a406fa1805a",
-  "video_status": "Missing: browser automation stopped while preparing screen recording"
+  "video_status": "Screen recording not yet provided"
 }

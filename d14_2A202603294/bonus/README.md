@@ -74,4 +74,4 @@ Có 1 hộp online và 3 hộp offline không tìm được cặp theo tiêu ch�
 2. Quay màn hình, mở `http://localhost:8080/tasks/31/jobs/30`, chọn hộp và chuyển qua vài frame để thấy cuboid trên point cloud.
 3. Lưu video ngắn vào `d14_2A202603294/bonus/demo.mp4`, commit và push; sau đó cập nhật trạng thái video trong báo cáo.
 
-Công cụ điều khiển giao diện đã dừng khi chuẩn bị ghi hình vì không xác định được URL cửa sổ Windows đủ chắc chắn. Không tạo video mô phỏng để thay cho minh chứng chạy trên CVAT.
+Chưa bổ sung video màn hình. Code function, log chạy và bảng so khớp đã được lưu; video vẫn là bằng chứng còn thiếu theo yêu cầu bonus.
