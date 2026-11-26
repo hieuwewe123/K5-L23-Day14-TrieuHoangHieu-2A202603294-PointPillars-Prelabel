@@ -1,0 +1,122 @@
+{
+  "review_status": "AI-assisted draft; human verification pending",
+  "total": {
+    "gt": 109,
+    "pred": 141,
+    "match": 92,
+    "delete": 49,
+    "add": 17,
+    "edit": 2,
+    "cost": 32.7
+  },
+  "per_frame": {
+    "s02f00": {
+      "gt": 8,
+      "pred": 7,
+      "match": 6,
+      "delete": 1,
+      "add": 2,
+      "edit": 0,
+      "cost": 2.3
+    },
+    "s02f19": {
+      "gt": 13,
+      "pred": 19,
+      "match": 11,
+      "delete": 8,
+      "add": 2,
+      "edit": 0,
+      "cost": 4.4
+    },
+    "s02f45": {
+      "gt": 6,
+      "pred": 10,
+      "match": 5,
+      "delete": 5,
+      "add": 1,
+      "edit": 0,
+      "cost": 2.5
+    },
+    "s03f25": {
+      "gt": 2,
+      "pred": 7,
+      "match": 2,
+      "delete": 5,
+      "add": 0,
+      "edit": 0,
+      "cost": 1.5
+    },
+    "s03f43": {
+      "gt": 6,
+      "pred": 9,
+      "match": 5,
+      "delete": 4,
+      "add": 1,
+      "edit": 0,
+      "cost": 2.2
+    },
+    "s03f58": {
+      "gt": 9,
+      "pred": 13,
+      "match": 8,
+      "delete": 5,
+      "add": 1,
+      "edit": 0,
+      "cost": 2.5
+    },
+    "s04f11": {
+      "gt": 14,
+      "pred": 14,
+      "match": 12,
+      "delete": 2,
+      "add": 2,
+      "edit": 0,
+      "cost": 2.6
+    },
+    "s04f30": {
+      "gt": 13,
+      "pred": 13,
+      "match": 11,
+      "delete": 2,
+      "add": 2,
+      "edit": 0,
+      "cost": 2.6
+    },
+    "s04f55": {
+      "gt": 10,
+      "pred": 8,
+      "match": 8,
+      "delete": 0,
+      "add": 2,
+      "edit": 0,
+      "cost": 2.0
+    },
+    "s05f01": {
+      "gt": 8,
+      "pred": 19,
+      "match": 8,
+      "delete": 11,
+      "add": 0,
+      "edit": 1,
+      "cost": 3.8
+    },
+    "s05f24": {
+      "gt": 15,
+      "pred": 14,
+      "match": 12,
+      "delete": 2,
+      "add": 3,
+      "edit": 0,
+      "cost": 3.6
+    },
+    "s05f48": {
+      "gt": 5,
+      "pred": 8,
+      "match": 4,
+      "delete": 4,
+      "add": 1,
+      "edit": 1,
+      "cost": 2.7
+    }
+  }
+}

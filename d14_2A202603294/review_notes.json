@@ -1,0 +1,325 @@
+{
+  "status": "DRAFT: requires human verification before submission",
+  "A": {
+    "removed": 37,
+    "added": 5,
+    "class_and_geometry_edits": 1
+  },
+  "B": {
+    "removed_1_based_prediction_rows": {
+      "s02f00": [
+        7
+      ],
+      "s02f19": [
+        9,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "s02f45": [
+        5,
+        6,
+        7,
+        8,
+        10
+      ],
+      "s03f25": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "s03f43": [
+        5,
+        7,
+        8,
+        9
+      ],
+      "s03f58": [
+        6,
+        7,
+        9,
+        10,
+        11
+      ],
+      "s04f11": [
+        12,
+        14
+      ],
+      "s04f30": [
+        4
+      ],
+      "s04f55": [],
+      "s05f01": [
+        6,
+        7,
+        8,
+        9,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "s05f24": [
+        8
+      ],
+      "s05f48": [
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "added_boxes": {
+      "s02f00": [
+        [
+          3.4,
+          -8.2,
+          -0.15,
+          12.0,
+          2.55,
+          3.4,
+          4.7124,
+          "Bus"
+        ],
+        [
+          -6.7,
+          -41.2,
+          -0.86,
+          1.9,
+          0.7,
+          1.8,
+          4.7124,
+          "Cyclist"
+        ]
+      ],
+      "s02f19": [
+        [
+          -6.95,
+          -5.5,
+          -0.86,
+          0.7,
+          0.65,
+          1.8,
+          5.4978,
+          "Pedestrian"
+        ],
+        [
+          -6.1,
+          -14.65,
+          -0.9,
+          1.95,
+          0.75,
+          1.85,
+          1.5708,
+          "Cyclist"
+        ]
+      ],
+      "s02f45": [
+        [
+          -8.5,
+          29.5,
+          -0.3,
+          0.65,
+          0.6,
+          1.8,
+          1.5708,
+          "Pedestrian"
+        ]
+      ],
+      "s03f25": [],
+      "s03f43": [
+        [
+          -6.55,
+          16.7,
+          -0.9,
+          2.0,
+          0.75,
+          1.85,
+          4.7124,
+          "Cyclist"
+        ]
+      ],
+      "s03f58": [
+        [
+          4.1,
+          22.1,
+          -0.1,
+          11.8,
+          2.55,
+          3.4,
+          4.43,
+          "Bus"
+        ]
+      ],
+      "s04f11": [
+        [
+          19.1,
+          29.1,
+          -0.1,
+          11.8,
+          2.55,
+          3.4,
+          4.57,
+          "Bus"
+        ],
+        [
+          2.6,
+          45.6,
+          -0.8,
+          1.95,
+          0.75,
+          1.85,
+          4.7124,
+          "Cyclist"
+        ]
+      ],
+      "s04f30": [
+        [
+          13.0,
+          10.5,
+          -0.1,
+          11.8,
+          2.55,
+          3.4,
+          4.7124,
+          "Bus"
+        ]
+      ],
+      "s04f55": [
+        [
+          -12.65,
+          27.2,
+          -0.5,
+          0.65,
+          0.65,
+          1.8,
+          0,
+          "Pedestrian"
+        ],
+        [
+          -5.25,
+          -39.4,
+          -0.9,
+          1.95,
+          0.75,
+          1.85,
+          4.7124,
+          "Cyclist"
+        ]
+      ],
+      "s05f01": [],
+      "s05f24": [
+        [
+          -12.7,
+          4.5,
+          -0.9,
+          1.95,
+          0.75,
+          1.85,
+          4.7124,
+          "Cyclist"
+        ],
+        [
+          -7.7,
+          11.5,
+          -0.9,
+          1.95,
+          0.75,
+          1.85,
+          4.7124,
+          "Cyclist"
+        ]
+      ],
+      "s05f48": [
+        [
+          -4.2,
+          -2.5,
+          -0.5,
+          5.6,
+          2.1,
+          2.45,
+          4.7124,
+          "Bus"
+        ]
+      ]
+    },
+    "edited_pp_ids": [
+      [
+        "s04f30",
+        11,
+        {
+          "label": "Cyclist",
+          "x": -4.55,
+          "y": 6.65,
+          "z": -0.9,
+          "length": 1.95,
+          "width": 0.75,
+          "height": 1.85,
+          "yaw": 4.7124
+        }
+      ],
+      [
+        "s05f01",
+        18,
+        {
+          "label": "Truck",
+          "x": -0.2,
+          "y": 12.1,
+          "z": 0.15,
+          "length": 8.6,
+          "width": 2.55,
+          "height": 3.9,
+          "yaw": 4.7124
+        }
+      ],
+      [
+        "s05f24",
+        11,
+        {
+          "label": "Cyclist",
+          "x": -12.6,
+          "y": -9.1,
+          "z": -0.9,
+          "length": 1.95,
+          "width": 0.75,
+          "height": 1.85,
+          "yaw": 4.7124
+        }
+      ],
+      [
+        "s05f48",
+        7,
+        {
+          "label": "Bus",
+          "length": 5.8,
+          "width": 2.1,
+          "height": 2.7,
+          "z": -0.3
+        }
+      ]
+    ]
+  },
+  "uncertain": [
+    "All added and enlarged boxes: verify full extents, ground contact and heading on Top/Side/Front. Hidden surfaces were inferred; camera agreement alone does not establish tolerance compliance.",
+    "s01f27: check people partly occluded among parked scooters/bicycles on the sidewalk; do not label unoccupied two-wheelers.",
+    "s02f00: Car pp_id=0 is occluded by hedges in one camera and visible in cam09; retained. Check cyclists farther along the right sidewalk.",
+    "s02f19: check occluded cars pp_id=9,10,11 and pedestrians near parked scooters; camera crop can show foreground objects hiding the actual box.",
+    "s02f45: check both pedestrians behind the vehicle, including retained pp_id=8.",
+    "s03f25: red bus ahead appears distant; verify its center is within 50 m before adding.",
+    "s03f58: verify the bus yaw and inferred rear extent. Check retained far car pp_id=11.",
+    "s04f11: added scooter near 46 m needs scope/visibility confirmation; check the unlabelled white van across the divider.",
+    "s04f55: check white car ahead-right, sparse or partly occluded.",
+    "s05f01: verify dump truck rear extent and heading; cab front is visible, rear is occluded.",
+    "s05f24: pp_id=5 vehicle at long range needs class confirmation; inspect additional small riders/tricycles at the intersection.",
+    "s05f48: verify Bus vs passenger/cargo van for the two blue vans, and whether distant Car pp_id=1 and 6 are distinct objects."
+  ]
+}
