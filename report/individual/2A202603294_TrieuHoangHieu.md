@@ -2,7 +2,7 @@
 
 - Mã học viên dùng với `--student`: `2A202603294`
 - `seed_tag` trong `frames_A.txt`: `82ac3100fd`
-- Công cụ hỗ trợ: Codex hỗ trợ chạy script, xem ảnh và soạn báo cáo. Các phần chưa kiểm chứng được ghi rõ, không coi pre-label là nhãn đã sửa.
+- Phương pháp: sử dụng các script của lab và công cụ AI hỗ trợ chạy lệnh, xem ảnh và tổng hợp báo cáo. Các phần chưa kiểm chứng được ghi rõ, không coi pre-label là nhãn đã sửa.
 
 ## 1. Dự đoán trước sweep (bước 5b)
 
@@ -14,7 +14,7 @@ Ghi trước khi chạy sweep, dựa trên ảnh camera và BEV của `s01f27`, 
 
 ## 2. Tập A: kiểm tra nhãn và tune
 
-**Trạng thái: bản nháp AI hỗ trợ, cần học viên kiểm tra trước khi nộp.** Codex đã rà ảnh camera/BEV, sửa nhãn trên CVAT task 29 và lưu `ref_A.json` từ dữ liệu đã lưu của CVAT local. Có 37 hộp bị loại, thêm 5 hộp ở `s04f24`, đổi lớp và chỉnh kích thước một xe tải ở `s01f27`. Chưa xác nhận mọi hộp đáp ứng dung sai của guideline; các phần bị che vẫn cần người kiểm tra.
+**Trạng thái: bản nháp AI hỗ trợ, cần học viên kiểm tra trước khi nộp.** Nhãn tập A được rà soát bằng ảnh camera/BEV, cập nhật trên CVAT task 29 và xuất thành `ref_A.json` từ dữ liệu đã lưu của CVAT local. Có 37 hộp bị loại, thêm 5 hộp ở `s04f24`, đổi lớp và chỉnh kích thước một xe tải ở `s01f27`. Chưa xác nhận mọi hộp đáp ứng dung sai của guideline; các phần bị che vẫn cần người kiểm tra.
 
 | Cấu hình | Xóa | Thêm | Sửa | Chi phí |
 |---|---:|---:|---:|---:|
@@ -51,7 +51,7 @@ s05f30: cấu hình chọn {'score_thr': '0.4', 'min_points': '0'} → 5.7 (tố
 
 ## 4. Tập B
 
-Đã chạy cấu hình tune trên đủ 12 frame, tạo `pred_B.json` với 141 hộp. Codex đã rà ảnh tổng hợp 7 camera của từng frame và ảnh cận từng hộp; loại 47 hộp, thêm 15 hộp, thay lớp/hình học của 4 hộp. Bản hiện tại lưu ở CVAT task 30 và xuất lại thành `ref_B.json`, đủ 12 frame với tổng 109 hộp. Các hộp thêm/chỉnh đã được xem trên hình chiếu Top/Side/Front từ LiDAR; phần suy luận bị che và dung sai vẫn cần học viên xác nhận.
+Đã chạy cấu hình tune trên đủ 12 frame, tạo `pred_B.json` với 141 hộp. Quá trình rà soát sử dụng ảnh tổng hợp 7 camera của từng frame và ảnh cận từng hộp; loại 47 hộp, thêm 15 hộp, thay lớp/hình học của 4 hộp. Bản hiện tại lưu ở CVAT task 30 và xuất lại thành `ref_B.json`, đủ 12 frame với tổng 109 hộp. Các hộp thêm/chỉnh đã được xem trên hình chiếu Top/Side/Front từ LiDAR; phần suy luận bị che và dung sai vẫn cần học viên xác nhận.
 
 Số đo từ lệnh bước 9 trên bản nháp hiện tại:
 
